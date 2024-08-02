@@ -4,6 +4,17 @@ from lagent.llms import (GPTAPI, INTERNLM2_META, HFTransformerCasualLM,
                          LMDeployClient, LMDeployServer)
 
 internlm_server = dict(type=LMDeployServer,
+                       path='/root/share/new_models/Shanghai_AI_Laboratory/internlm2_5-7b-chat',
+                       model_name='internlm2',
+                       meta_template=INTERNLM2_META,
+                       top_p=0.8,
+                       top_k=1,
+                       temperature=0,
+                       max_new_tokens=8192,
+                       repetition_penalty=1.02,
+                       stop_words=['<|im_end|>'])
+
+internstudio_server = dict(type=LMDeployServer,
                        path='internlm/internlm2_5-7b-chat',
                        model_name='internlm2',
                        meta_template=INTERNLM2_META,
